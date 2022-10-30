@@ -1,0 +1,57 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #b31c49, #ca2881);
+    font-family: 'Inconsolata', monospace;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 120px 100px 100px 100px 100px 100px;
+}
+
+.container > button {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2rem;
+    cursor: pointer;
+    border: 1px solid #FDFDFD;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+.container > button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.span-dois {
+    grid-column: span 2;
+}
+
+.tela {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.tela .operando__anterior {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.tela .operando__atual {
+    color: white;
+    font-size: 2.5rem;
+}
