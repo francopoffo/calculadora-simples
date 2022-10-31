@@ -1,10 +1,10 @@
 body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to right, #b31c49, #ca2881);
+    background: linear-gradient(to right, #aa0e3d, #e64ba0);
     font-family: 'Inconsolata', monospace;
     box-sizing: border-box;
-    
+        
 }
 
 .container {
@@ -14,6 +14,7 @@ body {
     min-height: 100vh;
     grid-template-columns: 100px 100px 100px 100px;
     grid-template-rows: 120px 100px 100px 100px 100px 100px;
+        
 }
 
 .container > button {
