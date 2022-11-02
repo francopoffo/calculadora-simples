@@ -1,3 +1,5 @@
+"use strict";
+
 class Calculadora {
     constructor(operandoAnteriorTextElement, operandoAtualTextElement){
         this.operandoAnteriorTextElement = operandoAnteriorTextElement
@@ -13,6 +15,7 @@ class Calculadora {
     }
 
     deleta(){
+        this.operandoAtual = this.operandoAtual.toString().slice(0, -1)
 
     }
 
@@ -59,9 +62,32 @@ class Calculadora {
         this.operandoAnterior = ''
     }
 
+    arrumaNumero(numero){
+        const numeroString = numero.toString()
+        const numeroInteiro = parseFloat(numeroString.split('.')[0])
+        const numeroDecimal = numeroString.split('.')[1]
+        let displayInteiro
+        if (isNaN(numeroInteiro)){
+            displayInteiro = ''
+        } else {
+            displayInteiro = numeroInteiro.toLocaleString('pt-BR', {
+            maximumFractionDigits: 0 })
+        }
+        if (numeroDecimal != null){
+            return `${numeroInteiro.toLocaleString('pt-BR', {
+                maximumFractionDigits: 0 })}`+`,`+`${numeroDecimal}`
+        } else {
+            return displayInteiro
+        }
+    }
+
     atualizaTela(){
-        this.operandoAtualTextElement.innerText = this.operandoAtual
-        this.operandoAnteriorTextElement.innerText = this.operandoAnterior
+        this.operandoAtualTextElement.innerText = this.arrumaNumero(this.operandoAtual)
+        if (this.operacao != null) {
+            this.operandoAnteriorTextElement.innerText = `${this.arrumaNumero(this.operandoAnterior)} ${this.operacao}`
+        } else {
+            this.operandoAnteriorTextElement.innerText = ''
+        }
     }
 
 }
@@ -98,5 +124,10 @@ botaoIgual.addEventListener('click', botao =>{
 
 botaoAC.addEventListener('click', botao =>{
     calculadora.limpa()
+    calculadora.atualizaTela()
+})
+
+botaoDelete.addEventListener('click', botao =>{
+    calculadora.deleta()
     calculadora.atualizaTela()
 })

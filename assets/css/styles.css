@@ -56,3 +56,10 @@ body {
     color: white;
     font-size: 2.5rem;
 }
+
+.virgula {
+    background-image: url(../img/virgula.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+}
