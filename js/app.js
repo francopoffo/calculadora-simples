@@ -1,5 +1,3 @@
-"use strict";
-
 class Calculadora {
     constructor(operandoAnteriorTextElement, operandoAtualTextElement){
         this.operandoAnteriorTextElement = operandoAnteriorTextElement
@@ -128,6 +126,40 @@ botaoAC.addEventListener('click', botao =>{
 })
 
 botaoDelete.addEventListener('click', botao =>{
+    calculadora.deleta()
+    calculadora.atualizaTela()
+})
+
+botaoNumero.forEach(botao => {
+    botao.addEventListener('touchstart', () => {
+        e.preventDefault()
+        calculadora.escreveNumero(botao.innerText)
+        calculadora.atualizaTela()
+    })
+})
+
+botaoOperacao.forEach(botao => {
+    botao.addEventListener('touchstart', () => {
+        e.preventDefault()
+        calculadora.escolheOperacao(botao.innerText)
+        calculadora.atualizaTela()
+    })
+})
+
+botaoIgual.addEventListener('touchstart', botao =>{
+    e.preventDefault()
+    calculadora.computa()
+    calculadora.atualizaTela()
+})
+
+botaoAC.addEventListener('touchstart', botao =>{
+    e.preventDefault()
+    calculadora.limpa()
+    calculadora.atualizaTela()
+})
+
+botaoDelete.addEventListener('touchstart', botao =>{
+    e.preventDefault()
     calculadora.deleta()
     calculadora.atualizaTela()
 })
